@@ -4,6 +4,7 @@ import "./Home.css";
 
 export const Home = () => {
   const [heroNames, setHeroNames] = useState([]);
+
   useEffect(() => {
     getDotaData().then((dataPromise) => {
       setHeroNames(dataPromise);
@@ -13,18 +14,15 @@ export const Home = () => {
   return (
     <div>
       {heroNames.map((item: any) => (
-        <div className="Home-heroName" key={item.id}>
-          {item.localized_name}
-        </div>
-      ))}
-
-      <li>
-        {heroNames.map((item: any) => (
+        <>
+          <div className="Home-heroName" key={item.id}>
+            {item.localized_name}
+          </div>
           <div className="Home-heroAttribute" key={item.id}>
             {item.primary_attr}
           </div>
-        ))}
-      </li>
+        </>
+      ))}
     </div>
   );
 };
