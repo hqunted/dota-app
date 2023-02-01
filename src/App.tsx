@@ -1,14 +1,10 @@
 import React from "react";
-import { getHeroNames, getHeroAttributes } from "./services/dotaHeroApi";
+
 import "./App.css";
+import { Home } from "./pages/Home";
 
 const App = () => {
-  return (
-    <div>
-      
-      <div>{`${getHeroNames()} has ${getHeroAttributes()}`}</div>
-    </div>
-  );
+  return <Home />;
 };
 
 export default App;
