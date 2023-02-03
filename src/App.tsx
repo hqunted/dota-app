@@ -4,13 +4,7 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { DefaultLayout } from "./Layouts/DefaultLayout";
 const App = () => {
-  return (
-    
-      <DefaultLayout>
-        <Home />
-      </DefaultLayout>
-   
-  );
+  return <Home />;
 };
 
 export default App;
