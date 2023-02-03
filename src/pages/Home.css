@@ -1,6 +1,4 @@
-.Home-heroName {
-  text-align: center;
-}
-.Home-heroAttribute {
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
