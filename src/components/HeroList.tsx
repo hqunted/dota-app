@@ -3,8 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Listbox } from "@headlessui/react";
 import { getDotaData } from "../services/dotaHeroApi";
 import { CheckIcon } from "@heroicons/react/20/solid";
+import "./HeroList.css";
+import { HeroMenu } from "../pages/HeroMenu";
+import { Navigate } from "react-router-dom";
 
 export const HeroList = (): JSX.Element => {
+  const handleClick = () => <Navigate to="/HeroMenu" replace={true} />;
+
   const [heroes, setHeroes] = useState<Hero[]>([]);
 
   useEffect(() => {
@@ -27,6 +32,7 @@ export const HeroList = (): JSX.Element => {
                 key={hero.id}
                 value={hero}
                 onClick={() => {
+                  handleClick();
                   alert(
                     `${hero.localized_name} is a ${hero.attack_type} hero that can play as ${hero.roles}`
                   );
