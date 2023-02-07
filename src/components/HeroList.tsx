@@ -4,14 +4,11 @@ import { Listbox } from "@headlessui/react";
 import { getDotaData } from "../services/dotaHeroApi";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import "./HeroList.css";
-import { HeroMenu } from "../pages/HeroMenu";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const HeroList = (): JSX.Element => {
-  const handleClick = () => <Navigate to="/HeroMenu" replace={true} />;
-
   const [heroes, setHeroes] = useState<Hero[]>([]);
-
+  let navigate = useNavigate();
   useEffect(() => {
     getDotaData().then((dataPromise) => {
       setHeroes(dataPromise);
@@ -32,10 +29,16 @@ export const HeroList = (): JSX.Element => {
                 key={hero.id}
                 value={hero}
                 onClick={() => {
-                  handleClick();
-                  alert(
-                    `${hero.localized_name} is a ${hero.attack_type} hero that can play as ${hero.roles}`
-                  );
+                  navigate("HeroMenu", {
+                    state: { 
+                      heroName: hero.localized_name,
+                      heroId: hero.id,
+                      heroLegs: hero.legs,
+                      heroRoles: hero.roles,
+                      heroPriAttribute: hero.primary_attr,
+                      heroAttackType: hero.attack_type,
+                    },
+                  });
                 }}
                 className={({ active }) =>
                   `relative cursor-default select-none py-2 pl-10 pr-4 ${
