@@ -1,13 +1,15 @@
-import { Hero } from "../types/hero";
+import { Hero } from "../types";
 import React, { useState, useEffect } from "react";
 import { Listbox } from "@headlessui/react";
 import { getDotaData } from "../services/dotaHeroApi";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import "./HeroList.css";
 import { useNavigate } from "react-router-dom";
+import { HomeStyles } from "../styles/HomeStyles";
 
 export const HeroList = (): JSX.Element => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
+
   let navigate = useNavigate();
   useEffect(() => {
     getDotaData().then((dataPromise) => {
@@ -16,48 +18,58 @@ export const HeroList = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="bg-gray-200 ">
+    <div className={HomeStyles.heroListScreen.heroListContainer}>
       <Listbox value={heroes} onChange={setHeroes}>
-        <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+        <Listbox.Button className={HomeStyles.heroListScreen.listboxButton}>
           Select Hero
         </Listbox.Button>
 
-        <div className="relative mt-1 ">
-          <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+        <div className={HomeStyles.heroListScreen.listboxContainer}>
+          <Listbox.Options className={HomeStyles.heroListScreen.listboxOptions}>
             {heroes.map((hero) => (
               <Listbox.Option
                 key={hero.id}
                 value={hero}
                 onClick={() => {
                   navigate("HeroMenu", {
-                    state: { 
-                      heroName: hero.localized_name,
-                      heroId: hero.id,
-                      heroLegs: hero.legs,
-                      heroRoles: hero.roles,
-                      heroPriAttribute: hero.primary_attr,
-                      heroAttackType: hero.attack_type,
-                    },
+                    state: { data: hero },
                   });
                 }}
                 className={({ active }) =>
-                  `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                    active ? "bg-amber-100 text-amber-900" : "text-gray-900"
+                  `${HomeStyles.heroListScreen.listboxOptionActive} ${
+                    active
+                      ? HomeStyles.heroListScreen.listboxOptionActiveTrue
+                      : HomeStyles.heroListScreen.listboxOptionActiveFalse
                   }`
                 }
               >
                 {({ selected }) => (
                   <>
                     <span
-                      className={`block truncate ${
-                        selected ? "font-medium" : "font-normal"
+                      className={`${
+                        HomeStyles.heroListScreen.listboxOptionSelected
+                      } ${
+                        selected
+                          ? HomeStyles.heroListScreen.listboxOptionSelectedTrue
+                          : HomeStyles.heroListScreen.listboxOptionSelectedFalse
                       }`}
                     >
                       {hero.localized_name}
                     </span>
                     {selected ? (
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                      <span
+                        className={
+                          HomeStyles.heroListScreen
+                            .listboxOptionNestedSelectedSpan
+                        }
+                      >
+                        <CheckIcon
+                          className={
+                            HomeStyles.heroListScreen
+                              .listboxOptionNestedSelectedSpanCheckIcon
+                          }
+                          aria-hidden="true"
+                        />
                       </span>
                     ) : null}
                   </>

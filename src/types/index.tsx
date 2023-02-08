@@ -7,3 +7,6 @@ export interface Hero {
   roles: string[];
   legs: number;
 }
+export interface TabItem {
+  title: string;
+}

@@ -1,15 +1,13 @@
 import { HeroList } from "../components/HeroList";
+import { HomeStyles } from "../styles/HomeStyles";
 
 export const Home = () => {
   return (
-    <div className="flex-initial container mx-auto bg-red-200  ">
-      <div className="text-5xl font-mono font-thin italic text-center leading-loose ">
-        <text>PICK YOUR HERO!!!!!!</text>
+    <div className={HomeStyles.homeScreen.homeContainer}>
+      <div className={HomeStyles.homeScreen.homeTextContainer}>
+        PICK YOUR HERO!!!!!!!!!!!!
       </div>
-      <div
-        className="flex-initial
-"
-      >
+      <div className={HomeStyles.homeScreen.homeHeroListContainer}>
         <HeroList />
       </div>
     </div>
