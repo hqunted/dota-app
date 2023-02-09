@@ -46,13 +46,13 @@ export const HeroMenu = () => {
     return <div>{heroDataValue}</div>;
   };
   return (
-    <div>
+    <div className={HeroMenuStyles.heroMenuContainer}>
       <Tab.Group>
         <button
           className={HeroMenuStyles.tabListButton}
           onClick={() => navigate(-1)}
         >
-          Go back to pick screen
+          Back
         </button>
         {tabList()}
         <Tab.Panels className={HeroMenuStyles.tabPanels}>
