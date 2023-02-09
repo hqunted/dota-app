@@ -7,7 +7,7 @@ export const Home = () => {
     <div>
       <div className={HomeStyles.homeScreen.homeContainer}>
         <div className={HomeStyles.homeScreen.homeTextContainer}>
-          PICK YOUR HERO!!!!!!!!!!!!
+          Pick Your Hero
         </div>
         <div className={HomeStyles.homeScreen.homeHeroListContainer}>
           <HeroList />

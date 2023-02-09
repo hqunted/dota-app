@@ -20,10 +20,6 @@ export const HeroList = (): JSX.Element => {
   return (
     <div className={HomeStyles.heroListScreen.heroListContainer}>
       <Listbox value={heroes} onChange={setHeroes}>
-        <Listbox.Button className={HomeStyles.heroListScreen.listboxButton}>
-          Select Hero
-        </Listbox.Button>
-
         <div className={HomeStyles.heroListScreen.listboxContainer}>
           <Listbox.Options className={HomeStyles.heroListScreen.listboxOptions}>
             {heroes.map((hero) => (
@@ -78,6 +74,9 @@ export const HeroList = (): JSX.Element => {
             ))}
           </Listbox.Options>
         </div>
+        <Listbox.Button className={HomeStyles.heroListScreen.listboxButton}>
+          Select Hero
+        </Listbox.Button>
       </Listbox>
     </div>
   );
