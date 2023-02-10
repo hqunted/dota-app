@@ -18,66 +18,72 @@ export const HeroList = (): JSX.Element => {
   }, []);
 
   return (
-    <div className={HomeStyles.heroListScreen.heroListContainer}>
-      <Listbox value={heroes} onChange={setHeroes}>
-        <div className={HomeStyles.heroListScreen.listboxContainer}>
-          <Listbox.Options className={HomeStyles.heroListScreen.listboxOptions}>
-            {heroes.map((hero) => (
-              <Listbox.Option
-                key={hero.id}
-                value={hero}
-                onClick={() => {
-                  navigate("HeroMenu", {
-                    state: { data: hero },
-                  });
-                }}
-                className={({ active }) =>
-                  `${HomeStyles.heroListScreen.listboxOptionActive} ${
-                    active
-                      ? HomeStyles.heroListScreen.listboxOptionActiveTrue
-                      : HomeStyles.heroListScreen.listboxOptionActiveFalse
-                  }`
-                }
-              >
-                {({ selected }) => (
-                  <>
-                    <span
-                      className={`${
-                        HomeStyles.heroListScreen.listboxOptionSelected
-                      } ${
-                        selected
-                          ? HomeStyles.heroListScreen.listboxOptionSelectedTrue
-                          : HomeStyles.heroListScreen.listboxOptionSelectedFalse
-                      }`}
-                    >
-                      {hero.localized_name}
-                    </span>
-                    {selected ? (
+    <div>
+      <div className={HomeStyles.heroListScreen.heroListContainer}>
+        <Listbox value={heroes} onChange={setHeroes}>
+          <div className={HomeStyles.heroListScreen.listboxContainer}>
+            <Listbox.Options
+              className={HomeStyles.heroListScreen.listboxOptions}
+            >
+              {heroes.map((hero) => (
+                <Listbox.Option
+                  key={hero.id}
+                  value={hero}
+                  onClick={() => {
+                    navigate("HeroMenu", {
+                      state: { data: hero },
+                    });
+                  }}
+                  className={({ active }) =>
+                    `${HomeStyles.heroListScreen.listboxOptionActive} ${
+                      active
+                        ? HomeStyles.heroListScreen.listboxOptionActiveTrue
+                        : HomeStyles.heroListScreen.listboxOptionActiveFalse
+                    }`
+                  }
+                >
+                  {({ selected }) => (
+                    <>
                       <span
-                        className={
-                          HomeStyles.heroListScreen
-                            .listboxOptionNestedSelectedSpan
-                        }
+                        className={`${
+                          HomeStyles.heroListScreen.listboxOptionSelected
+                        } ${
+                          selected
+                            ? HomeStyles.heroListScreen
+                                .listboxOptionSelectedTrue
+                            : HomeStyles.heroListScreen
+                                .listboxOptionSelectedFalse
+                        }`}
                       >
-                        <CheckIcon
+                        {hero.localized_name}
+                      </span>
+                      {selected ? (
+                        <span
                           className={
                             HomeStyles.heroListScreen
-                              .listboxOptionNestedSelectedSpanCheckIcon
+                              .listboxOptionNestedSelectedSpan
                           }
-                          aria-hidden="true"
-                        />
-                      </span>
-                    ) : null}
-                  </>
-                )}
-              </Listbox.Option>
-            ))}
-          </Listbox.Options>
-        </div>
-        <Listbox.Button className={HomeStyles.heroListScreen.listboxButton}>
-          Select Hero
-        </Listbox.Button>
-      </Listbox>
+                        >
+                          <CheckIcon
+                            className={
+                              HomeStyles.heroListScreen
+                                .listboxOptionNestedSelectedSpanCheckIcon
+                            }
+                            aria-hidden="true"
+                          />
+                        </span>
+                      ) : null}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </div>
+          <Listbox.Button className={HomeStyles.heroListScreen.listboxButton}>
+            Select Hero
+          </Listbox.Button>
+        </Listbox>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 export const MenuTitleColorLayout = {
-  
   id: "red",
   name: "black",
   localized_name: "white",

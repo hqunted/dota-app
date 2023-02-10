@@ -1,13 +1,13 @@
 export const HomeStyles = {
   homeScreen: {
     homeContainer:
-      "flex-1container mx-auto bg-gradient-to-r from-sky-600 to-gray-700 h-screen ",
+      "flex-1 mx-auto bg-gradient-to-r from-sky-600 to-gray-700 h-screen relative",
     homeTextContainer:
       "text-7xl tracking-widest italic font-serif font-extrabold text-transparent text-center leading-loose bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text ",
-    homeHeroListContainer: "flex-initial ",
+    homeHeroListContainer: "mx-auto max-w-[50%]",
   },
   heroListScreen: {
-    heroListContainer: "bg-gray-200 rounded-lg ",
+    heroListContainer: "bg-gray-200 rounded-lg",
     listboxButton:
       "relative w-full cursor-default hover:bg-gradient-to-r from-sky-600 to-gray-700 rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm",
     listboxContainer: "relative mt-1 ",
