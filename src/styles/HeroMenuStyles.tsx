@@ -1,6 +1,6 @@
 export const HeroMenuStyles = {
   heroMenuContainer:
-    "flex-1  bg-gradient-to-r from-sky-600 to-gray-700 h-screen",
+    "flex-1 h-screen",
   tabList:
     "shadow-xl ring border-solid flex  justify-center rounded-b-full space-x-1 bg-blue-900/20 p-1 text-stone-300  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)",
   selectedTrue:

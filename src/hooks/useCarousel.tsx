@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const slides = [
   {
-    url: "https://thumbs.dreamstime.com/z/tournament-award-online-game-aegis-dark-blue-background-173367522.jpg",
+    url: "https://thumbs.gfycat.com/LameMemorableAlligatorgar.webp",
   },
   {
     url: "https://thumbs.dreamstime.com/z/milan-italy-august-dota-logo-website-homep-milan-italy-august-dota-logo-website-homepage-106078551.jpg",

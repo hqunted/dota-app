@@ -5,7 +5,11 @@ module.exports = {
   },
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "roshan-1": "url('../../src/images/roshan.jpg')",
+      },
+    },
   },
   variants: {},
   plugins: [require("tailwindcss"), require("autoprefixer")],

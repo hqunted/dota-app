@@ -11,6 +11,7 @@ export const HeroMenu = () => {
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
+  console.log(data);
 
   const formatKey = (key: string) => {
     return MenuTitleLayout[key];
@@ -52,7 +53,7 @@ export const HeroMenu = () => {
           className={HeroMenuStyles.tabListButton}
           onClick={() => navigate(-1)}
         >
-          Back
+          Back to Hero Pick
         </button>
         {tabList()}
         <Tab.Panels className={HeroMenuStyles.tabPanels}>
