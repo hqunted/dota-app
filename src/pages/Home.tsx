@@ -1,11 +1,8 @@
 import { HeroList } from "../components/HeroList";
 import { HomeCarousel } from "../components/HomeCarousel";
 import { HomeStyles } from "../styles/HomeStyles";
-import { useState } from "react";
 
 export const Home = () => {
-  const [hoverValue, setHoverValue] = useState("false");
-
   return (
     <div className="container mx-auto">
       <div className={HomeStyles.homeScreen.homeContainer}>
