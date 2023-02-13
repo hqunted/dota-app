@@ -1,13 +1,28 @@
+import classNames from "classnames";
+
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { GiFlamingArrow } from "react-icons/gi";
 import { useCarousel } from "../hooks/useCarousel";
 
-export const HomeCarousel = () => {
+export enum Direction {
+  RIGHT = "right",
+  LEFT = "left",
+}
+
+interface CarouselProp {
+  direction?: Direction.LEFT | Direction.RIGHT;
+}
+export const Carousel = ({ direction = Direction.RIGHT }: CarouselProp) => {
   const { slides, currentIndex, goToSlide, prevSlide, nextSlide } =
     useCarousel();
 
   return (
-    <div className={"max-w-[1600px] h-[480px] w-full my-px static group "}>
+    <div
+      className={classNames(
+        "z-40 w-64 h-screen transition-transform -translate-x-full fixed top-0 sm:translate-x-0  aria-label=Sidebar absolute static group",
+        direction === Direction.RIGHT ? "right-0" : "left-0"
+      )}
+    >
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500 "
@@ -18,7 +33,7 @@ export const HomeCarousel = () => {
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
-      <div className="flex top-4 justify-center py-2">
+      <div className="flex left-4 justify-center  ">
         {slides.map((slide, slideIndex) => (
           <div
             className="text-2xl cursor-pointer "

@@ -27,27 +27,35 @@ export const HeroMenu = () => {
   const tabList = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
       return (
-        <Tab.List className={HeroMenuStyles.tabList} key={key}>
-          <Tab as={Fragment} key={key}>
-            {({ selected }) => (
-              <button
-                className={
-                  selected
-                    ? HeroMenuStyles.selectedTrue
-                    : HeroMenuStyles.selectedFalse
-                }
-              >
-                {formatKey(key)}
-              </button>
-            )}
-          </Tab>
-        </Tab.List>
+        <div>
+          <Tab.List className={HeroMenuStyles.tabList} key={key}>
+            <Tab as={Fragment} key={key}>
+              {({ selected }) => (
+                <button
+                  className={
+                    selected
+                      ? HeroMenuStyles.selectedTrue
+                      : HeroMenuStyles.selectedFalse
+                  }
+                >
+                  {formatKey(key)}
+                </button>
+              )}
+            </Tab>
+          </Tab.List>
+        </div>
       );
     });
     return <div>{heroDataValue}</div>;
   };
   return (
     <div className={HeroMenuStyles.heroMenuContainer}>
+      <img
+        src={require("../images/questionmark.png")}
+        className=" mx-auto animate-bounce "
+        alt="question"
+      />
+      ;
       <Tab.Group>
         <button
           className={HeroMenuStyles.tabListButton}

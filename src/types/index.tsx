@@ -10,3 +10,4 @@ export interface Hero {
 export interface TabItem {
   title: string;
 }
+

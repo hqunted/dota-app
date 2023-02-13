@@ -1,3 +1,4 @@
+@tailwind utilities;
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap");
