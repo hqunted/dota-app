@@ -19,8 +19,8 @@ export const Carousel = ({ direction = Direction.RIGHT }: CarouselProp) => {
   return (
     <div
       className={classNames(
-        "z-40 w-64 h-screen transition-transform -translate-x-full fixed top-0 sm:translate-x-0  aria-label=Sidebar absolute static group",
-        direction === Direction.RIGHT ? "right-0" : "left-0"
+        "z-40 w-64 h-screen transition-transform -translate-x-full fixed top-0 sm:translate-x-0 aria-label=Sidebar absolute static group ",
+        direction === Direction.RIGHT ? "right-0 sm:translate-x-96 " : "left-0 "
       )}
     >
       <div
