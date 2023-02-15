@@ -20,7 +20,7 @@ export const Carousel = ({ direction = Direction.RIGHT }: CarouselProp) => {
     <div
       className={classNames(
         "z-40 w-64 h-screen transition-transform -translate-x-full fixed top-0 sm:translate-x-0 aria-label=Sidebar absolute static group ",
-        direction === Direction.RIGHT ? "right-0 sm:translate-x-96 " : "left-0 "
+        direction === Direction.RIGHT ? "right-0 " : "left-0"
       )}
     >
       <div
@@ -32,17 +32,6 @@ export const Carousel = ({ direction = Direction.RIGHT }: CarouselProp) => {
       </div>
       <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <BsChevronCompactRight onClick={nextSlide} size={30} />
-      </div>
-      <div className="flex left-4 justify-center  ">
-        {slides.map((slide, slideIndex) => (
-          <div
-            className="text-2xl cursor-pointer "
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-          >
-            <GiFlamingArrow />
-          </div>
-        ))}
       </div>
     </div>
   );

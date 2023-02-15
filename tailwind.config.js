@@ -7,10 +7,26 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "roshan-1": "url('../../src/images/roshan1.jpg')",
+        roshan: "url('../../src/images/roshan1.jpg')",
       },
       fontFamily: {
         Blaka: ["Blaka Hollow", "cursive"],
+        Julee: ["Julee", "cursive"],
+      },
+      animation: {
+        text: "text 2s ease infinite",
+      },
+      keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
     },
   },

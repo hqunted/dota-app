@@ -4,34 +4,32 @@ import { HomeStyles } from "../styles/HomeStyles";
 import { Direction } from "../components/Carousel";
 import classNames from "classnames";
 import { useState } from "react";
+import { Visibility } from "../types";
 
 export const Home = () => {
-  const [isShown, SetIsShown] = useState(false);
-  const setVisibility = () => {
-    SetIsShown(isShown);
-    console.log;
-  };
+  let [hoverValue, setHoverValue] = useState(Visibility.INVISIBLE);
 
   return (
-    <div>
+    <div className={HomeStyles.homeScreen.homeScreenBackground}>
       <div className={HomeStyles.homeScreen.homeContainer}>
         <div className={HomeStyles.carouselScreen.carouselContainer}>
           <Carousel direction={Direction.LEFT} />
         </div>
-
         <div className={HomeStyles.carouselScreen.carouselContainer}>
           <Carousel direction={Direction.RIGHT} />
         </div>
-
         <img
+          onMouseEnter={() => {
+            setHoverValue(Visibility.VISIBLE);
+          }}
+          onMouseLeave={() => setHoverValue(Visibility.INVISIBLE)}
           alt="question"
           src={require("../images/questionmark.png")}
           className={classNames(
-            "object-center mx-auto scale-75 max-w-sm h-auto transition-shadow ease-in-out duration-300 shadow-none hover:scale-100"
+            `${HomeStyles.homeScreen.homeImageContainer.homeQuestionMarkImage}`
           )}
         />
-
-        <div className={HomeStyles.homeScreen.homeTextContainer}>
+        <div className={HomeStyles.homeScreen.homeTextContainer.homeHeaderText}>
           <div>
             <div>Roshan's Pick Game</div>
           </div>
@@ -41,10 +39,14 @@ export const Home = () => {
         </div>
         <div
           className={classNames(
-            "opacity-0 hover:opacity-100 absolute text-4xl tracking-widest font-Blaka Hollow text-transparent content-center leading-loose bg-gray-400 bg-clip-text"
+            hoverValue === Visibility.VISIBLE
+              ? (hoverValue = Visibility.VISIBLE)
+              : (hoverValue = Visibility.INVISIBLE),
+            ` hover:${hoverValue} ${HomeStyles.homeScreen.homeTextContainer.homeHintText}`
           )}
         >
-          ASDASFONQWOINQIONWQNIOQWINOQWIOP
+          How To Play: The Roshan picked a hero! you should predict the heroes
+          by picking on the select hero part!
         </div>
       </div>
     </div>

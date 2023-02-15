@@ -6,6 +6,7 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 import "./HeroList.css";
 import { useNavigate } from "react-router-dom";
 import { HomeStyles } from "../styles/HomeStyles";
+import { useHeroData } from "../hooks/useHeroData";
 
 export const HeroList = (): JSX.Element => {
   const [heroes, setHeroes] = useState<Hero[]>([]);

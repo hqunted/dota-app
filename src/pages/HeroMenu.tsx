@@ -5,18 +5,19 @@ import { Fragment } from "react";
 import { HeroMenuStyles } from "../styles/HeroMenuStyles";
 import { Hero } from "../types";
 import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
+import { randomHeroPicker } from "../services/randomHeroPicker";
 
 export const HeroMenu = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
-  console.log(data);
+  randomHeroPicker();
 
   const formatKey = (key: string) => {
     return MenuTitleLayout[key];
   };
-
+  
   const tabPanel = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
       return <Tab.Panel key={key}>{<li>{value}</li>}</Tab.Panel>;
@@ -27,47 +28,47 @@ export const HeroMenu = () => {
   const tabList = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
       return (
-        <div>
-          <Tab.List className={HeroMenuStyles.tabList} key={key}>
-            <Tab as={Fragment} key={key}>
-              {({ selected }) => (
-                <button
-                  className={
-                    selected
-                      ? HeroMenuStyles.selectedTrue
-                      : HeroMenuStyles.selectedFalse
-                  }
-                >
-                  {formatKey(key)}
-                </button>
-              )}
-            </Tab>
-          </Tab.List>
-        </div>
+        <Tab.List className={HeroMenuStyles.tabList} key={key}>
+          <Tab as={Fragment} key={key}>
+            {({ selected }) => (
+              <button
+                className={
+                  selected
+                    ? HeroMenuStyles.selectedTrue
+                    : HeroMenuStyles.selectedFalse
+                }
+              >
+                {formatKey(key)}
+              </button>
+            )}
+          </Tab>
+        </Tab.List>
       );
     });
     return <div>{heroDataValue}</div>;
   };
   return (
-    <div className={HeroMenuStyles.heroMenuContainer}>
-      <img
-        src={require("../images/questionmark.png")}
-        className=" mx-auto animate-bounce "
-        alt="question"
-      />
-      ;
-      <Tab.Group>
-        <button
-          className={HeroMenuStyles.tabListButton}
-          onClick={() => navigate(-1)}
-        >
-          Back to Hero Pick
-        </button>
-        {tabList()}
-        <Tab.Panels className={HeroMenuStyles.tabPanels}>
-          {tabPanel()}
-        </Tab.Panels>
-      </Tab.Group>
+    <div className={HeroMenuStyles.heroMenuContainer.heroMenuBackground}>
+      <button
+        className={HeroMenuStyles.heroMenuBackButton}
+        onClick={() => navigate(-1)}
+      >
+        Back to Hero Pick
+      </button>
+      <div className={HeroMenuStyles.heroMenuContainer.heroMenu}>
+        <img
+          src={require("../images/questionmark.png")}
+          className={HeroMenuStyles.questionMarkImage}
+          alt="question"
+        />
+
+        <Tab.Group>
+          {tabList()}
+          <Tab.Panels className={HeroMenuStyles.tabPanels}>
+            {tabPanel()}
+          </Tab.Panels>
+        </Tab.Group>
+      </div>
     </div>
   );
 };
