@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { GiFlamingArrow } from "react-icons/gi";
+
 import { useCarousel } from "../hooks/useCarousel";
 
 export enum Direction {
@@ -13,13 +13,12 @@ interface CarouselProp {
   direction?: Direction.LEFT | Direction.RIGHT;
 }
 export const Carousel = ({ direction = Direction.RIGHT }: CarouselProp) => {
-  const { slides, currentIndex, goToSlide, prevSlide, nextSlide } =
-    useCarousel();
+  const { slides, currentIndex, prevSlide, nextSlide } = useCarousel();
 
   return (
     <div
       className={classNames(
-        "z-40 w-64 h-screen transition-transform -translate-x-full fixed top-0 sm:translate-x-0 aria-label=Sidebar absolute static group ",
+        "z-40 w-64 h-screen transition-transform -translate-x-full fixed top-0 right-0 md:w-[15%] sm:translate-x-0 aria-label=Sidebar absolute static group ",
         direction === Direction.RIGHT ? "right-0 " : "left-0"
       )}
     >

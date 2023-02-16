@@ -5,19 +5,17 @@ import { Fragment } from "react";
 import { HeroMenuStyles } from "../styles/HeroMenuStyles";
 import { Hero } from "../types";
 import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
-import { randomHeroPicker } from "../services/randomHeroPicker";
 
 export const HeroMenu = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
-  randomHeroPicker();
 
   const formatKey = (key: string) => {
     return MenuTitleLayout[key];
   };
-  
+
   const tabPanel = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
       return <Tab.Panel key={key}>{<li>{value}</li>}</Tab.Panel>;

@@ -1,23 +1,17 @@
-import { Hero } from "../types";
-import React, { useState, useEffect } from "react";
 import { Listbox } from "@headlessui/react";
-import { getDotaData } from "../services/dotaHeroApi";
+
 import { CheckIcon } from "@heroicons/react/20/solid";
 import "./HeroList.css";
 import { useNavigate } from "react-router-dom";
 import { HomeStyles } from "../styles/HomeStyles";
-import { useHeroData } from "../hooks/useHeroData";
+import { useHeroPicker } from "../hooks/useHeroPicker";
 
 export const HeroList = (): JSX.Element => {
-  const [heroes, setHeroes] = useState<Hero[]>([]);
-
   let navigate = useNavigate();
-  useEffect(() => {
-    getDotaData().then((dataPromise) => {
-      setHeroes(dataPromise);
-    });
-  }, []);
 
+  const { heroes, setHeroes, randomHeroIdPicker, heroId } = useHeroPicker();
+
+  console.log(randomHeroIdPicker());
   return (
     <div>
       <div className={HomeStyles.heroListScreen.heroListContainer}>
