@@ -11,9 +11,10 @@ export interface TabItem {
   title: string;
 }
 export interface questionmarkProp {
-  visible: Visibility.VISIBLE;
-  invisible: Visibility.INVISIBLE;
+  visible?: Visibility.VISIBLE;
+  invisible?: Visibility.INVISIBLE;
 }
+
 export enum Visibility {
   VISIBLE = "opacity-100",
   INVISIBLE = "opacity-0",

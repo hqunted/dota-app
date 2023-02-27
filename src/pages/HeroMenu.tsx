@@ -1,16 +1,27 @@
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Tab } from "@headlessui/react";
 import { Fragment } from "react";
 import { HeroMenuStyles } from "../styles/HeroMenuStyles";
 import { Hero } from "../types";
 import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
+import { useHeroPicker } from "../hooks/useHeroPicker";
 
 export const HeroMenu = () => {
+  const { randomHeroPicker, heroData } = useHeroPicker();
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
+  const randomPickedHero = randomHeroPicker();
+
+  const comparePickedHero = (value: Object) => {
+    return randomPickedHero === value
+      ? console.log("True")
+      : console.log("False");
+  };
+
+  comparePickedHero(hero);
+  console.log(randomPickedHero);
 
   const formatKey = (key: string) => {
     return MenuTitleLayout[key];
@@ -43,8 +54,10 @@ export const HeroMenu = () => {
         </Tab.List>
       );
     });
+
     return <div>{heroDataValue}</div>;
   };
+
   return (
     <div className={HeroMenuStyles.heroMenuContainer.heroMenuBackground}>
       <button

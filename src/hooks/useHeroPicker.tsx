@@ -4,23 +4,25 @@ import { getDotaData } from "../services/dotaHeroApi";
 
 export const useHeroPicker = () => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
+
   useEffect(() => {
     getDotaData().then((dataPromise) => {
       setHeroes(dataPromise);
     });
   }, []);
-  const heroId = () => {
-    const heroId = heroes.map((data) => {
-      return data.id;
+
+  const heroData = () => {
+    const heroData = Object.entries(heroes).map(([key, value]) => {
+      return value;
     });
-    return heroId;
+    return heroData;
   };
 
-  const randomHeroIdPicker = () => {
-    const a = heroId();
-    const randomHeroId = a[Math.round(Math.random() * a.length)];
+  const randomHeroPicker = () => {
+    const randomHeroId =
+      heroData()[Math.round(Math.random() * heroData().length)];
     return randomHeroId;
   };
 
-  return { heroes, setHeroes, randomHeroIdPicker, heroId };
+  return { heroes, setHeroes, randomHeroPicker, heroData };
 };

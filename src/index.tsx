@@ -7,18 +7,19 @@ import { Home } from "./pages/Home";
 import { HeroMenu } from "./pages/HeroMenu";
 import { RouteLayout } from "./layouts/RouteLayout";
 
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<RouteLayout />}>
           <Route index element={<Home />}></Route>
           <Route path="HeroMenu" element={<HeroMenu />}></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+   
+  </BrowserRouter>
 );
