@@ -11,18 +11,8 @@ export const useHeroPicker = () => {
     });
   }, []);
 
-  const heroData = () => {
-    const heroData = Object.entries(heroes).map(([key, value]) => {
-      return value;
-    });
-    return heroData;
-  };
-
-  const randomHeroPicker = () => {
-    const randomHeroId =
-      heroData()[Math.round(Math.random() * heroData().length)];
-    return randomHeroId;
-  };
-
-  return { heroes, setHeroes, randomHeroPicker, heroData };
+  const pickRandomHero = () =>
+    heroes[Math.round(Math.random() * heroes.length)];
+  
+  return { heroes, setHeroes, pickRandomHero };
 };

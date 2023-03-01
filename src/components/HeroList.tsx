@@ -9,7 +9,7 @@ import { useHeroPicker } from "../hooks/useHeroPicker";
 export const HeroList = () => {
   const navigate = useNavigate();
   const { heroes, setHeroes } = useHeroPicker();
-  
+
   return (
     <div>
       <div className={HomeStyles.heroListScreen.heroListContainer}>

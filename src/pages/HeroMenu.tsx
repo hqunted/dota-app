@@ -7,21 +7,20 @@ import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
 import { useHeroPicker } from "../hooks/useHeroPicker";
 
 export const HeroMenu = () => {
-  const { randomHeroPicker, heroData } = useHeroPicker();
+  const { pickRandomHero, heroes } = useHeroPicker();
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
-  const randomPickedHero = randomHeroPicker();
 
-  const comparePickedHero = (value: Object) => {
-    return randomPickedHero === value
-      ? console.log("True")
-      : console.log("False");
+  const comparePickedHero = () => {
+    if (heroes.length < 1) return;
+    return pickRandomHero()?.id === data.id
+      ? console.log("Congrats!")
+      : console.log("try again on the pick screen");
   };
 
-  comparePickedHero(hero);
-  console.log(randomPickedHero);
+  comparePickedHero();
 
   const formatKey = (key: string) => {
     return MenuTitleLayout[key];
