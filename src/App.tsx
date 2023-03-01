@@ -2,11 +2,7 @@ import "./App.css";
 import { ProvideHeroData } from "./context/RandomHeroContext";
 
 const App = () => {
-  return (
-    <ProvideHeroData>
-      <App></App>
-    </ProvideHeroData>
-  );
+  return <App></App>;
 };
 
 export default App;

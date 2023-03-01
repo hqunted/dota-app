@@ -1,9 +1,10 @@
 import { createContext } from "react";
 import { useHeroPicker } from "../hooks/useHeroPicker";
 
-const { pickRandomHero, heroes } = useHeroPicker();
-const Context = createContext({});
-export const ProvideHeroData = (children: any) => {
+export const ProvideHeroData = ({ children }: any) => {
+  const { pickRandomHero } = useHeroPicker();
+  const Context = createContext({});
+
   return (
     <Context.Provider value={pickRandomHero()}>{children}</Context.Provider>
   );
