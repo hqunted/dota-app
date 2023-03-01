@@ -5,6 +5,8 @@ import { HeroMenuStyles } from "../styles/HeroMenuStyles";
 import { Hero } from "../types";
 import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
 import { useHeroPicker } from "../hooks/useHeroPicker";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const HeroMenu = () => {
   const { pickRandomHero, heroes } = useHeroPicker();
@@ -16,8 +18,29 @@ export const HeroMenu = () => {
   const comparePickedHero = () => {
     if (heroes.length < 1) return;
     return pickRandomHero()?.id === data.id
-      ? console.log("Congrats!")
-      : console.log("try again on the pick screen");
+      ? toast.success("Congratulations you have found the HERO!!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        })
+      : toast.error(
+          "Oops, you selected the wrong hero. Try again on the pick screen...",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          }
+        );
   };
 
   comparePickedHero();
@@ -59,6 +82,18 @@ export const HeroMenu = () => {
 
   return (
     <div className={HeroMenuStyles.heroMenuContainer.heroMenuBackground}>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <button
         className={HeroMenuStyles.heroMenuBackButton}
         onClick={() => navigate(-1)}

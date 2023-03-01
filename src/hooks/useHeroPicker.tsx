@@ -13,6 +13,6 @@ export const useHeroPicker = () => {
 
   const pickRandomHero = () =>
     heroes[Math.round(Math.random() * heroes.length)];
-  
+
   return { heroes, setHeroes, pickRandomHero };
 };
