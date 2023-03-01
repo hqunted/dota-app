@@ -28,8 +28,8 @@ export const QuestionMark = () => {
           ` hover:${hoverValue} ${HomeStyles.homeScreen.homeTextContainer.homeHintText}`
         )}
       >
-        How To Play: The Roshan picked a hero! you should predict the heroes by
-        picking on the select hero part!
+        How To Play: The Roshan picked a hero! you should predict and find the
+        heroes by picking on the select hero part!
       </div>
     </div>
   );

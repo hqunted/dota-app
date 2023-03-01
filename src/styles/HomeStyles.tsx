@@ -4,14 +4,14 @@ export const HomeStyles = {
       "bg-roshan bg-no-repeat bg-cover bg-center bg-fixed lg:h-full lg:w-full  ",
     homeImageContainer: {
       homeQuestionMarkImage:
-        "object-center cursor-pointer w-auto mx-auto scale-75 h-auto transition-shadow ease-in-out duration-300 shadow-none hover:scale-100 md:h-[20%] ",
+        "object-center cursor-pointer w-auto mx-auto scale-75 h-auto transition-shadow ease-in-out duration-300 shadow-none hover:scale-90 md:h-[20%] ",
     },
     homeContainer: "flex-1 mx-auto w-screen h-screen lg:h-full",
     homeTextContainer: {
       homeHeaderText:
         "text-6xl tracking-widest font-Blaka Hollow, cursive text-transparent text-center leading-loose bg-gray-400 bg-clip-text ",
       homeHintText:
-        "absolute text-3xl px-[24%] max-h-[100%] py-[14%]  tracking-widest font-Julee font-bold Hollow text-transparent leading-loose animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent",
+        "absolute text-2xl px-[24%] max-h-[100%] py-[16%]  tracking-widest font-Julee font-bold Hollow text-transparent leading-loose animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent",
     },
 
     homeHeroListContainer: "mx-auto max-w-[35%]",
