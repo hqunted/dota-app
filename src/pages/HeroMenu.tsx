@@ -7,9 +7,10 @@ import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
 import { useHeroPicker } from "../hooks/useHeroPicker";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ProvideHeroData } from "../context/RandomHeroContext";
 
 export const HeroMenu = () => {
-  const { pickRandomHero, heroes } = useHeroPicker();
+  const { heroes, pickRandomHero } = useHeroPicker();
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
@@ -58,8 +59,16 @@ export const HeroMenu = () => {
 
   const tabList = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
+      const setComparedPickedHeroBackgroundColor = () => {
+        return value === data ? "bg-green-500" : "bg-red-500";
+      };
       return (
-        <Tab.List className={HeroMenuStyles.tabList} key={key}>
+        <Tab.List
+          className={
+            (HeroMenuStyles.tabList, setComparedPickedHeroBackgroundColor())
+          }
+          key={key}
+        >
           <Tab as={Fragment} key={key}>
             {({ selected }) => (
               <button
@@ -100,19 +109,21 @@ export const HeroMenu = () => {
       >
         Back to Hero Pick
       </button>
+
       <div className={HeroMenuStyles.heroMenuContainer.heroMenu}>
         <img
           src={require("../images/questionmark.png")}
           className={HeroMenuStyles.questionMarkImage}
           alt="question"
         />
-
-        <Tab.Group>
-          {tabList()}
-          <Tab.Panels className={HeroMenuStyles.tabPanels}>
-            {tabPanel()}
-          </Tab.Panels>
-        </Tab.Group>
+        <ProvideHeroData>
+          <Tab.Group>
+            {tabList()}
+            <Tab.Panels className={HeroMenuStyles.tabPanels}>
+              {tabPanel()}
+            </Tab.Panels>
+          </Tab.Group>
+        </ProvideHeroData>
       </div>
     </div>
   );

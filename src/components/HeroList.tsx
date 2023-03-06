@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { HomeStyles } from "../styles/HomeStyles";
 import { useHeroPicker } from "../hooks/useHeroPicker";
 
-
 export const HeroList = () => {
   const navigate = useNavigate();
   const { heroes, setHeroes } = useHeroPicker();

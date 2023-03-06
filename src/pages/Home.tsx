@@ -3,7 +3,6 @@ import { Carousel } from "../components/Carousel";
 import { HomeStyles } from "../styles/HomeStyles";
 import { Direction } from "../components/Carousel";
 import { QuestionMark } from "../components/QuestionMark";
-import { ProvideHeroData } from "../context/RandomHeroContext";
 
 export const Home = () => {
   return (
@@ -23,9 +22,7 @@ export const Home = () => {
           </div>
         </div>
         <div className={HomeStyles.homeScreen.homeHeroListContainer}>
-          <ProvideHeroData>
-            <HeroList />
-          </ProvideHeroData>
+          <HeroList />
         </div>
       </div>
     </div>

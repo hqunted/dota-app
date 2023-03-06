@@ -8,7 +8,6 @@ export const QuestionMark = () => {
 
   return (
     <div>
-      {" "}
       <img
         onMouseEnter={() => {
           setHoverValue(Visibility.VISIBLE);
