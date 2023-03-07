@@ -16,6 +16,8 @@ export const HeroMenu = () => {
   const { data } = state;
   const hero: Hero = data;
 
+  const pickedHeroData: Hero[] = [];
+
   const comparePickedHero = () => {
     if (heroes.length < 1) return;
     return pickRandomHero()?.id === data.id
@@ -56,19 +58,28 @@ export const HeroMenu = () => {
     });
     return <div>{heroDataValue}</div>;
   };
-
+  let counter = 0;
   const tabList = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
+      counter++;
+      pickedHeroData.push(value);
+
       const setComparedPickedHeroBackgroundColor = () => {
-        return value === data ? "bg-green-500" : "bg-red-500";
+        if (heroes.length < 1) return;
+        return Object.values(data)[counter] ==
+          Object.values(pickRandomHero())[counter]
+          ? console.log("OOOOYAAAA")
+          : console.log("LOKAKATİGO");
       };
+      if (heroes.length < 1) return;
+      console.log(
+        Object.values(data)[counter],
+        Object.values(pickRandomHero())[counter]
+      );
+      setComparedPickedHeroBackgroundColor();
+
       return (
-        <Tab.List
-          className={
-            (HeroMenuStyles.tabList, setComparedPickedHeroBackgroundColor())
-          }
-          key={key}
-        >
+        <Tab.List className={HeroMenuStyles.tabList} key={key}>
           <Tab as={Fragment} key={key}>
             {({ selected }) => (
               <button

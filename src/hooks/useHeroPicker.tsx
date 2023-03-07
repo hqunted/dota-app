@@ -14,7 +14,6 @@ export const useHeroPicker = () => {
   const pickRandomHero = () => {
     return heroes[Math.round(Math.random() * heroes.length)];
   };
-  console.log(pickRandomHero());
 
   return { heroes, setHeroes, pickRandomHero };
 };
