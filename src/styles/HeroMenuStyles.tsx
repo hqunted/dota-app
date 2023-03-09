@@ -7,7 +7,7 @@ export const HeroMenuStyles = {
 
   questionMarkImage: "pl-[7%]  animate-bounce ",
   tabList:
-    "max-w-[30%] px-[10%] shadow-xl ring border-solid flex justify-center  space-x-1 bg-blue-900/20 p-1 text-stone-300  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)",
+    "max-w-[30%] px-[10%] shadow-xl ring border-solid flex justify-center  space-x-1 bg-blue-900/20 p-1 text-stone-300  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8) ",
   selectedTrue:
     "shadow-inner w-50 rounded-lg py-2.5 text-sm font-medium leading-5 text-stone-300 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-sky-500  duration-300",
   selectedFalse:
