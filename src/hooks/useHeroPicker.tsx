@@ -4,6 +4,7 @@ import { getDotaData } from "../services/dotaHeroApi";
 
 export const useHeroPicker = () => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
+  const randomHeroNumber = Math.round(Math.random() * heroes.length);
 
   useEffect(() => {
     getDotaData().then((dataPromise) => {
@@ -12,7 +13,7 @@ export const useHeroPicker = () => {
   }, []);
 
   const pickRandomHero = () => {
-    return heroes[Math.round(Math.random() * heroes.length)];
+    return heroes[randomHeroNumber];
   };
 
   return { heroes, setHeroes, pickRandomHero };

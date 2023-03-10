@@ -4,6 +4,15 @@ import { useHeroPicker } from "../hooks/useHeroPicker";
 export const ProvideHeroData = ({ children }: any) => {
   const { pickRandomHero } = useHeroPicker();
   const Context = createContext({});
+  let isPicked = false;
+  const randomHero = localStorage.getItem("randomHero");
 
-  return <Context.Provider value={""}>{children}</Context.Provider>;
+  if (isPicked) {
+    localStorage.setItem("randomHero", JSON.stringify(pickRandomHero()));
+    isPicked = false;
+  } else {
+    isPicked = true;
+  }
+
+  return <Context.Provider value={isPicked}>{children}</Context.Provider>;
 };

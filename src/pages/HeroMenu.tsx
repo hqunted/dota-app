@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Tab } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { HeroMenuStyles } from "../styles/HeroMenuStyles";
 import { Hero } from "../types";
 import { MenuTitleLayout } from "../layouts/MenuTitleLayout";
@@ -8,21 +8,22 @@ import { useHeroPicker } from "../hooks/useHeroPicker";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ProvideHeroData } from "../context/RandomHeroContext";
+import { NewGame } from "../components/NewGame";
 
 export const HeroMenu = () => {
-  const { heroes, pickRandomHero } = useHeroPicker();
-
+  const { heroes } = useHeroPicker();
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
-  const pickedHeroData: Hero[] = [];
+  let counter = -1;
+  const randomHero = JSON.parse(localStorage.getItem("randomHero") || "{}");
 
   const comparePickedHero = (item: string) => {
     if (item === "id") {
       if (heroes.length < 1) return;
-      return pickRandomHero()?.id === data.id
-        ? toast.success("Congratulations you have found the HERO!!", {
+      return randomHero?.id === data.id
+        ? toast.success(<NewGame></NewGame>, {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -55,28 +56,35 @@ export const HeroMenu = () => {
   };
 
   const tabPanel = () => {
-    const heroDataValue = Object.entries(hero).map(([key, value]) => {
-      return <Tab.Panel key={key}>{<li>{value}</li>}</Tab.Panel>;
-    });
-    return <div>{heroDataValue}</div>;
+    return (
+      <div className="bg-gray-800 text-sm text-center">
+        <div className={"text-bg-green-500"}>
+          {"Green"}= Matched!, {"Red"}= Didn't matched
+        </div>
+      </div>
+    );
   };
-  let counter = 0;
+
   const tabList = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
       counter++;
-      pickedHeroData.push(value);
       let color = "";
 
       const setComparedPickedHeroBackgroundColor = () => {
         if (heroes.length < 1) return;
         return Object.values(data)[counter] ===
-          Object.values(pickRandomHero())[counter]
-          ? (color = "bg-green-400")
-          : (color = "bg-red-400");
+          Object.values(randomHero)[counter]
+          ? (color = HeroMenuStyles.predictionContainer.predictionTrue)
+          : typeof Object.values(data)[counter] === typeof [] &&
+            randomHero?.roles.some((value: string, key: number) => {
+              if (key > 3) {
+                return data.roles.includes(value);
+              } else return false;
+            })
+          ? (color = HeroMenuStyles.predictionContainer.predictionMaybe)
+          : (color = HeroMenuStyles.predictionContainer.predictionFalse);
       };
-      if (heroes.length < 1) return;
 
-      console.log(Object.values(pickRandomHero())[counter]);
       setComparedPickedHeroBackgroundColor();
 
       return (
@@ -90,7 +98,7 @@ export const HeroMenu = () => {
                     : HeroMenuStyles.selectedFalse
                 }
               >
-                {formatKey(key)}
+                {formatKey(key) + ": " + value}
               </button>
             )}
           </Tab>
@@ -115,9 +123,12 @@ export const HeroMenu = () => {
         pauseOnHover
         theme="colored"
       />
+
       <button
         className={HeroMenuStyles.heroMenuBackButton}
-        onClick={() => navigate(-1)}
+        onClick={() => {
+          navigate(-1);
+        }}
       >
         Back to Hero Pick
       </button>
