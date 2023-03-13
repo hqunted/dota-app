@@ -134,11 +134,6 @@ export const HeroMenu = () => {
       </button>
 
       <div className={HeroMenuStyles.heroMenuContainer.heroMenu}>
-        <img
-          src={require("../images/questionmark.png")}
-          className={HeroMenuStyles.questionMarkImage}
-          alt="question"
-        />
         <ProvideHeroData>
           <Tab.Group>
             {tabList()}

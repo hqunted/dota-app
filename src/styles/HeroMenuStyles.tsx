@@ -2,7 +2,7 @@ export const HeroMenuStyles = {
   heroMenuContainer: {
     heroMenuBackground:
       "bg-roshan bg-no-repeat bg-cover bg-center bg-fixed h-screen w-screen",
-    heroMenu: " pl-[40%] pt-[4%] ",
+    heroMenu: " pl-[41.3%] pt-[4%] ",
   },
   predictionContainer: {
     predictionTrue:
