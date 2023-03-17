@@ -59,7 +59,7 @@ export const HeroMenu = () => {
     return (
       <div className="bg-gray-800 text-sm text-center">
         <div className={"text-bg-green-500"}>
-          {"Green"}= Matched!, {"Red"}= Didn't matched
+          {"Green"}= Matched, {"Red"}= Didn't matched
         </div>
       </div>
     );
@@ -71,17 +71,17 @@ export const HeroMenu = () => {
       let color = "";
 
       const setComparedPickedHeroBackgroundColor = () => {
+        const dataValue = Object.values(data)[counter];
+        const randomHeroValue = Object.values(randomHero)[counter];
         if (heroes.length < 1) return;
-        return Object.values(data)[counter] ===
-          Object.values(randomHero)[counter]
+
+        return dataValue === randomHeroValue
           ? (color = HeroMenuStyles.predictionContainer.predictionTrue)
-          : typeof Object.values(data)[counter] === typeof [] &&
-            randomHero?.roles.some((value: string, key: number) => {
-              if (key > 3) {
-                return data.roles.includes(value);
-              } else return false;
+          : Array.isArray(dataValue) &&
+            randomHero?.roles.slice(4).some((value: string) => {
+              return data.roles.includes(value);
             })
-          ? (color = HeroMenuStyles.predictionContainer.predictionMaybe)
+          ? (color = HeroMenuStyles.predictionContainer.predictionTrue)
           : (color = HeroMenuStyles.predictionContainer.predictionFalse);
       };
 

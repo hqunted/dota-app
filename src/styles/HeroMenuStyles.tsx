@@ -7,8 +7,6 @@ export const HeroMenuStyles = {
   predictionContainer: {
     predictionTrue:
       "bg-green-600 opacity-75  transition ease-in-out delay-150 hover:opacity-100 hover:-translate-y-1 hover:scale-110 hover:bg-green-500",
-    predictionMaybe:
-      "bg-orange-600 opacity-75  transition ease-in-out delay-150 hover:opacity-100 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500",
     predictionFalse:
       "bg-red-600 opacity-75  transition ease-in-out delay-150 hover:opacity-100 hover:-translate-y-1 hover:scale-110 hover:bg-red-500",
   },
