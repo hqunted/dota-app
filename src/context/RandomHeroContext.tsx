@@ -5,7 +5,6 @@ export const ProvideHeroData = ({ children }: any) => {
   const { pickRandomHero } = useHeroPicker();
   const Context = createContext({});
   let isPicked = false;
-  const randomHero = localStorage.getItem("randomHero");
 
   if (isPicked) {
     localStorage.setItem("randomHero", JSON.stringify(pickRandomHero()));

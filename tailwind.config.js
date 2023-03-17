@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        roshan: "url('../../src/images/roshan.jpg')",
+        roshan: "url('../../src/images/roshan1.jpg')",
       },
       fontFamily: {
         Blaka: ["Blaka Hollow", "cursive"],
