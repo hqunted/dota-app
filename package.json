@@ -15,6 +15,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "axios": "^1.2.6",
+    "build": "^0.1.4",
     "classnames": "^2.3.2",
     "cli": "^1.0.1",
     "gh-pages": "^5.0.0",
@@ -35,11 +36,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "yarn add build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -b main -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
