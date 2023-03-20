@@ -2,7 +2,7 @@
   "name": "dota-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hqunted.github.io/dota-app",
+  "homepage": "https://hqunted.github.io/dota-app/public/index.html",
   "dependencies": {
     "@headlessui/react": "^1.7.10",
     "@heroicons/react": "^2.0.14",
