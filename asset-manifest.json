@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/dota-app/public/index.html/static/css/main.da7f725c.css",
-    "main.js": "/dota-app/public/index.html/static/js/main.4999a32e.js",
-    "static/media/roshan1.jpg": "/dota-app/public/index.html/static/media/roshan1.66d8c80b7eb00673e816.jpg",
-    "index.html": "/dota-app/public/index.html/index.html",
-    "main.da7f725c.css.map": "/dota-app/public/index.html/static/css/main.da7f725c.css.map",
-    "main.4999a32e.js.map": "/dota-app/public/index.html/static/js/main.4999a32e.js.map"
+    "main.css": "/dota-app/static/css/main.7baa978a.css",
+    "main.js": "/dota-app/static/js/main.3d7f462c.js",
+    "static/media/roshan1.jpg": "/dota-app/static/media/roshan1.66d8c80b7eb00673e816.jpg",
+    "index.html": "/dota-app/index.html",
+    "main.7baa978a.css.map": "/dota-app/static/css/main.7baa978a.css.map",
+    "main.3d7f462c.js.map": "/dota-app/static/js/main.3d7f462c.js.map"
   },
   "entrypoints": [
-    "static/css/main.da7f725c.css",
-    "static/js/main.4999a32e.js"
+    "static/css/main.7baa978a.css",
+    "static/js/main.3d7f462c.js"
   ]
 }
