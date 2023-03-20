@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/dota-app/static/css/main.7baa978a.css",
+    "main.js": "/dota-app/static/js/main.3d7f462c.js",
+    "static/media/roshan1.jpg": "/dota-app/static/media/roshan1.66d8c80b7eb00673e816.jpg",
+    "index.html": "/dota-app/index.html",
+    "main.7baa978a.css.map": "/dota-app/static/css/main.7baa978a.css.map",
+    "main.3d7f462c.js.map": "/dota-app/static/js/main.3d7f462c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7baa978a.css",
+    "static/js/main.3d7f462c.js"
+  ]
+}
