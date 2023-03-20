@@ -3,7 +3,6 @@ import { Carousel } from "../components/Carousel";
 import { HomeStyles } from "../styles/HomeStyles";
 import { Direction } from "../components/Carousel";
 import { QuestionMark } from "../components/QuestionMark";
-import { getDotaData } from "../services/dotaHeroApi";
 
 export const Home = () => {
   return (
