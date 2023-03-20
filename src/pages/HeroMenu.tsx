@@ -78,9 +78,11 @@ export const HeroMenu = () => {
         return dataValue === randomHeroValue
           ? (color = HeroMenuStyles.predictionContainer.predictionTrue)
           : Array.isArray(dataValue) &&
-            randomHero?.roles.slice(4).some((value: string) => {
-              return data.roles.includes(value);
-            })
+            randomHero?.roles
+              .filter((value: string, index: number) => index >= 4)
+              .some((value: string) => {
+                return data.roles.includes(value);
+              })
           ? (color = HeroMenuStyles.predictionContainer.predictionTrue)
           : (color = HeroMenuStyles.predictionContainer.predictionFalse);
       };
