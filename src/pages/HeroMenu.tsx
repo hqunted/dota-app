@@ -17,6 +17,7 @@ export const HeroMenu = () => {
   const { data } = state;
   const hero: Hero = data;
   let counter = -1;
+  console.log(heroes);
   const randomHero = JSON.parse(localStorage.getItem("randomHero") || "{}");
 
   const comparePickedHero = (item: string) => {
