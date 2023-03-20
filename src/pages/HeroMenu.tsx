@@ -69,6 +69,7 @@ export const HeroMenu = () => {
     const heroDataValue = Object.entries(hero).map(([key, value]) => {
       counter++;
       let color = "";
+      console.log(randomHero);
 
       const setComparedPickedHeroBackgroundColor = () => {
         const dataValue = Object.values(data)[counter];
