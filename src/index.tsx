@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<RouteLayout />}>
+      <Route path="/dota-app" element={<RouteLayout />}>
         <Route index element={<Home />}></Route>
         <Route path="HeroMenu" element={<HeroMenu />}></Route>
       </Route>
