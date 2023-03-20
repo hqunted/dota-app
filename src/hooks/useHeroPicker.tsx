@@ -16,5 +16,6 @@ export const useHeroPicker = () => {
     return heroes[randomHeroNumber];
   };
 
+  console.log(pickRandomHero());
   return { heroes, setHeroes, pickRandomHero };
 };
