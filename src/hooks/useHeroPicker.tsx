@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Hero } from "../types";
 import { getDotaData } from "../services/dotaHeroApi";
 
