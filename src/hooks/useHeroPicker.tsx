@@ -7,12 +7,17 @@ export const useHeroPicker = () => {
   const randomHeroNumber = Math.round(Math.random() * heroes.length);
 
   console.log(randomHeroNumber);
-  console.log(heroes);
+  console.log(getDotaData());
   useEffect(() => {
-    getDotaData().then((dataPromise) => {
-      console.log(dataPromise);
-      setHeroes(dataPromise);
-    });
+    console.log(getDotaData());
+    getDotaData()
+      .then((dataPromise) => {
+        console.log(dataPromise);
+        setHeroes(dataPromise);
+      })
+      .catch((error) => {
+        console.error("Error fetching Dota data:", error);
+      });
   }, []);
 
   const pickRandomHero = () => {
