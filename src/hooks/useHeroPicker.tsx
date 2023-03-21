@@ -9,17 +9,6 @@ export const useHeroPicker = () => {
   console.log(randomHeroNumber);
   console.log(getDotaData());
 
-  useEffect(() => {
-    getDotaData()
-      .then((dataPromise) => {
-        console.log(dataPromise);
-        setHeroes(dataPromise);
-      })
-      .catch((error) => {
-        console.error("Error fetching Dota data:", error);
-      });
-  }, []);
-
   const pickRandomHero = () => {
     return heroes[randomHeroNumber];
   };
