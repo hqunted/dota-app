@@ -6,10 +6,11 @@ export const useHeroPicker = () => {
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const randomHeroNumber = Math.round(Math.random() * heroes.length);
 
+  const randomNum = 2;
   console.log(randomHeroNumber);
   console.log(getDotaData());
   useEffect(() => {
-    console.log(getDotaData());
+    console.log(randomNum);
     getDotaData()
       .then((dataPromise) => {
         console.log(dataPromise);
