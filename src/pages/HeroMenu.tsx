@@ -11,13 +11,14 @@ import { ProvideHeroData } from "../context/RandomHeroContext";
 import { NewGame } from "../components/NewGame";
 
 export const HeroMenu = () => {
-  const { heroes } = useHeroPicker();
+  const { heroes, pickRandomHero } = useHeroPicker();
   const navigate = useNavigate();
   const { state } = useLocation();
   const { data } = state;
   const hero: Hero = data;
   let counter = -1;
   console.log(heroes);
+  pickRandomHero();
   const randomHero = JSON.parse(localStorage.getItem("randomHero") as string);
 
   const comparePickedHero = (item: string) => {
