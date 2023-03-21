@@ -9,6 +9,7 @@ export const useHeroPicker = () => {
   const randomNum = 2;
   console.log(randomHeroNumber);
   console.log(getDotaData());
+  console.log(randomNum);
   useEffect(() => {
     console.log(randomNum);
     getDotaData()
