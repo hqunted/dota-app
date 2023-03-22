@@ -14,11 +14,14 @@ export const useHeroPicker = () => {
       try {
         const dataPromise = await getDotaData();
         console.log(dataPromise);
-        setHeroes(dataPromise);
+        if (dataPromise !== undefined && dataPromise !== null) {
+          setHeroes(dataPromise);
+        }
       } catch (error) {
         console.error("Error fetching Dota data:", error);
       }
     };
+  
     fetchData();
   }, []);
 
